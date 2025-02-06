@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Will You Be My Valentine?</title>
+
+  <link rel="icon" type="image/svg" href="images/favicon.svg">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- Hidden radio inputs for the cycling "No" button states -->
+  <input type="radio" id="state0" name="cycle" checked hidden>
+  <input type="radio" id="state1" name="cycle" hidden>
+  <input type="radio" id="state2" name="cycle" hidden>
+  <input type="radio" id="state3" name="cycle" hidden>
+  <input type="radio" id="state4" name="cycle" hidden>
+  <!-- Hidden checkbox to toggle the success view -->
+  <input type="checkbox" id="successToggle" hidden>
+
+  <!-- Photo Container (changes with state) -->
+  <div class="photo-container">
+    <img src="images/6.jpeg" alt="Default Image" class="photo state0">
+    <img src="images/2.jpeg" alt="Are you sure?" class="photo state1">
+    <img src="images/1.jpeg" alt="For real?" class="photo state2">
+    <img src="images/8.jpeg" alt="I know you want to say yes" class="photo state3">
+    <img src="images/5.jpeg" alt="Final Yes" class="photo state4">
+    <img src="images/7.jpeg" alt="Success Image" class="photo success">
+  </div>
+
+  <!-- Main interactive container -->
+  <div class="container">
+    <h1>Hi Subi, Will You Be My Valentine?</h1>
+    <p>I love you more than words can say. Every day with you is a new adventure!</p>
+    
+    <!-- The "Yes, I will!" button now toggles the success view -->
+    <label for="successToggle" class="button yes">Yes, I will!</label>
+    
+    <!-- The cycling "No" button (one label per state) -->
+    <label for="state1" class="button no state0-label">No, I won't</label>
+    <label for="state2" class="button no state1-label">Are you sure?</label>
+    <label for="state3" class="button no state2-label">For real?</label>
+    <label for="state4" class="button no state3-label">Ik you want to say yes, just click it</label>
+    
+    <!-- Instead of changing the state, this toggles the success message -->
+    <label for="successToggle" class="button no state4-label">Haha Yes I Will <span>🤭</span></label>
+  </div>
+
+  <!-- Success view container (initially hidden) -->
+  <div class="success-container">
+    <div class="message">
+        I knew you couldn’t resist! Now, get ready for a lifetime of love, laughter, and unforgettable memories together <span style="font-size:1.5rem;">❤️</span>
+    </div>
+  </div>
+
+</body>
+</html>

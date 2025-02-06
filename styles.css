@@ -1,0 +1,304 @@
+/* ================================================= */
+/* Customizable CSS Variables                      */
+/* ================================================= */
+:root {
+    --yes-bg: #4CAF50; /* Green */
+    --yes-hover-bg: #388E3C;
+    --no-bg: #E53935; /* Red */
+    --no-hover-bg: #C62828;
+    --are-you-sure-bg: #E53935; /* Orange */
+    --for-real-bg: #E53935; /* Blue */
+    --ik-bg: #E53935; /* Purple */
+    --yes-final-bg: var(--yes-bg); 
+    --yes-final-hover-bg: var(--yes-hover-bg);
+  
+    --button-color: #fff;
+    --container-bg: rgba(255, 255, 255, 0.85);
+    --bg-color: #fad0c4;
+    --text-color: #e63946;
+    --cat-color: #FFD700;
+    --cat-border: #e63946;
+    --font-family: "Roboto", Arial;
+  }
+  
+  /* ================================================= */
+  /* Global Reset & Body Styles                      */
+  /* ================================================= */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* ================================================= */
+  /* Main Container Styling                          */
+  /* ================================================= */
+  .container {
+    background: var(--container-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Heading & Paragraph */
+  h1 {
+    font-size: 3rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* ================================================= */
+  /* Button Base Styles                              */
+  /* ================================================= */
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--button-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0 3rem;
+    gap: 1rem;
+  }
+  
+  /* Yes Button */
+  .button.yes {
+    background: var(--yes-bg);
+  }
+  .button.yes:hover {
+    background: var(--yes-hover-bg);
+  }
+  
+  /* No Button */
+  .button.no {
+    display: inline-block;
+    width: auto;
+    padding: 0.6rem 1.2rem;
+    background: var(--no-bg);
+  }
+  .button.no:hover {
+    background: var(--no-hover-bg);
+  }
+
+  /* Photo container styles */
+.photo-container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: none;
+  }
+  
+  /* Show the corresponding image based on radio button state */
+  #state0:checked ~ .photo-container .state0 {
+    display: block;
+  }
+  
+  #state1:checked ~ .photo-container .state1 {
+    display: block;
+  }
+  
+  #state2:checked ~ .photo-container .state2 {
+    display: block;
+  }
+  
+  #state3:checked ~ .photo-container .state3 {
+    display: block;
+  }
+  
+  #state4:checked ~ .photo-container .state4 {
+    display: block;
+  }
+  
+  /* Show success image when success is triggered */
+  #successToggle:checked ~ .photo-container .success {
+    display: block;
+  }
+  
+  /* Hide everything else on success */
+  #successToggle:checked ~ .container {
+    display: none;
+  }
+  
+  #successToggle:checked ~ .photo-container .state0,
+  #successToggle:checked ~ .photo-container .state1,
+  #successToggle:checked ~ .photo-container .state2,
+  #successToggle:checked ~ .photo-container .state3,
+  #successToggle:checked ~ .photo-container .state4 {
+    display: none;
+  }
+  
+  /* Show success container */
+  #successToggle:checked ~ .success-container {
+    display: block;
+  }
+  
+  
+  /* Changing No Button Cycle Colors */
+  .button.no.state1-label { background: var(--are-you-sure-bg); }
+  .button.no.state2-label { background: var(--for-real-bg); }
+  .button.no.state3-label { background: var(--ik-bg); }
+  .button.no.state4-label { background: var(--yes-final-bg); }
+  
+  .button.no.state1-label:hover { background: #C62828; }
+  .button.no.state2-label:hover { background: #C62828; }
+  .button.no.state3-label:hover { background: #C62828; }
+  .button.no.state4-label:hover { background: #388E3C; }
+  
+  /* ================================================= */
+  /* Cycling Toggle Button (No button) Styles        */
+  /* ================================================= */
+  /* Initially hide all cycling labels with .no class */
+  .button.no {
+    display: none;
+  }
+  
+  /* Show the appropriate label based on the radio state */
+  #state0:checked ~ .container .state0-label {
+    display: inline-block;
+  }
+  #state1:checked ~ .container .state1-label {
+    display: inline-block;
+  }
+  #state2:checked ~ .container .state2-label {
+    display: inline-block;
+  }
+  #state3:checked ~ .container .state3-label {
+    display: inline-block;
+  }
+  #state4:checked ~ .container .state4-label {
+    display: inline-block;
+  }
+
+  /* Dynamically increase container size as Yes button grows */
+  #state0:checked ~ .container {
+    padding: 2rem;
+  }
+  #state1:checked ~ .container {
+    padding: 3rem;
+  }
+  #state2:checked ~ .container {
+    padding: 3.5rem;
+  }
+  #state3:checked ~ .container {
+    padding: 4rem;
+  }
+  #state4:checked ~ .container {
+    padding: 2rem;
+  }
+
+/* Adjust Yes button growth and spacing */
+#state0:checked ~ .container .yes {
+    transform: scale(1.5);
+    margin: 1.5rem auto;
+    display: inline-block;
+  }
+  #state1:checked ~ .container .yes {
+    transform: scale(2.0);
+    margin: 2rem auto;
+    display: inline-block;
+  }
+  #state2:checked ~ .container .yes {
+    transform: scale(2.5);
+    margin: 3rem auto;
+    display: inline-block;
+  }
+  #state3:checked ~ .container .yes {
+    transform: scale(3.0);
+    margin: 5rem auto;
+    display: inline-block;
+  }
+  #state4:checked ~ .container .yes {
+    transform: scale(1.5);
+    margin: 1.5rem auto;
+    display: inline-block;
+  }
+  
+  /* ================================================= */
+  /* (Optional) Adjust the "Yes, I will!" button style based on state */
+  /* ================================================= */
+  #state0:checked ~ .container .yes {
+    transform: scale(1.5);
+    margin: 1rem;
+  }
+  #state1:checked ~ .container .yes {
+    transform: scale(2.0);
+    margin: 2rem;
+  }
+  #state2:checked ~ .container .yes {
+    transform: scale(2.5);
+    margin: 3rem;
+  }
+  #state3:checked ~ .container .yes {
+    transform: scale(3.0);
+    margin: 5rem;
+  }
+  #state4:checked ~ .container .yes {
+    transform: scale(1.5);
+    margin: 1rem;
+  }
+
+  #state0:checked ~ .container .no {
+    transform: scale(1);
+  }
+  #state4:checked ~ .container .no {
+    transform: scale(1.3);
+  }
+  
+  /* ================================================= */
+  /* Success View Styling                            */
+  /* ================================================= */
+  .success-container {
+    display: none;
+    text-align: center;
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-top: 1rem;
+  }
+  
+  /* When the successToggle is checked, hide the main container and show the success view */
+  #successToggle:checked ~ .container {
+    display: none;
+  }
+  
+  #successToggle:checked ~ .success-container {
+    display: block;
+  }
+  
+  /* Message styling */
+  .message {
+    font-size: 1.5rem;
+    color: black;
+  }
